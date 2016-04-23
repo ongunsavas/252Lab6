@@ -1,11 +1,14 @@
 require 'sinatra'
+
 get "/" do
 	"Hello, world!"
 end
+
 get "/restaurants" do
 	chicago = ["Purple Pig", "Boho House", "Gibsons"]
 	new_york = ["Blue Ribbon", "Fogo", "Sipsak"]
-	case params[:id]
+	id = params[:id].to_i
+	case id
 	when 1
 		chicago.sample
 	when 2
