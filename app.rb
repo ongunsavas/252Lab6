@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'geokit'
 
 get "/" do
 	"Hello, world!"
@@ -15,5 +16,13 @@ get "/restaurants" do
 		new_york.sample
 	else
 		"The city is not found in our database"
-		end
+	end
+end
+
+class Restaurant
+	def initialize(name, address, picture_url)
+		@name = name
+		@address = address
+		@picture_url = picture_url
+	end
 end
