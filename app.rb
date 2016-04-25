@@ -14,16 +14,35 @@ get "/restaurants" do
 		Restaurant.new("Barraca", "81 Greenwich Ave, New York, NY 10014", "https://goo.gl/a0XXKC"),
 		Restaurant.new("Sip Sak", "928 2nd Ave, New York, NY 10022", "http://goo.gl/JSmQXW")]
 
-
-	id = params[:id].to_i
+	address = params[:address].to_s
+	id = locateCity(address)
 	case id
-	when 1
+	when 0
 		chosen = chicago.sample
 		{name: chosen.getName, address: chosen.getAddress, picture_url: chosen.getPicture}.to_json
-	when 2
-		new_york.sample.to_json
+	when 1
+		chosen = new_york.sample
+		{name: chosen.getName, address: chosen.getAddress, picture_url: chosen.getPicture}.to_json
 	else
 		"The city is not found in our database"
+	end
+end
+
+helpers do 
+	def locateCity(address)
+		given_address = Geokit::Geocoders::GoogleGeocoder.geocode address.to_s
+		new_york = Geokit::Geocoders::GoogleGeocoder.geocode '350 5th Ave, New York, NY 10118'
+		chicago = Geokit::Geocoders::GoogleGeocoder.geocode '800 W Randolph St, Chicago, IL 60607'
+		adress_db = [chicago, new_york]
+		min = 100000000.00
+		result = -1
+		adress_db.each_with_index { |address, index|
+			if min < address.distance_to(given_address)
+				min = address.distance_to(given_address)
+				result = index
+			end
+		}
+		return result
 	end
 end
 
