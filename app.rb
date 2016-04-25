@@ -18,7 +18,7 @@ get "/restaurants" do
 	id = params[:id].to_i
 	case id
 	when 1
-		chicago.sample.to_json
+		chicago.sample.name.to_json
 	when 2
 		new_york.sample.to_json
 	else
