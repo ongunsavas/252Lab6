@@ -18,7 +18,8 @@ get "/restaurants" do
 	id = params[:id].to_i
 	case id
 	when 1
-		chicago.sample.getName.to_json
+		chosen = chicago.sample
+		{name: chosen.getName, address: chosen.getAddress, picture_url: chosen.getPicture}.to_json
 	when 2
 		new_york.sample.to_json
 	else
@@ -35,5 +36,13 @@ class Restaurant
 
 	def getName
 		@name
+	end
+
+	def getAddress
+		@address
+	end
+
+	def getPicture
+		@picture_url
 	end
 end
