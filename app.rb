@@ -37,7 +37,7 @@ helpers do
 		min = 100000000.00
 		result = -1
 		adress_db.each_with_index { |address, index|
-			if min < address.distance_to(given_address)
+			if min > address.distance_to(given_address)
 				min = address.distance_to(given_address)
 				result = index
 			end
