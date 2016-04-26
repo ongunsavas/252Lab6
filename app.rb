@@ -3,7 +3,7 @@ require 'geokit'
 require 'json'
 
 get "/" do
-  redirect'/index.html'
+  send_file 'index.html'
 end
 
 get "/restaurants" do
