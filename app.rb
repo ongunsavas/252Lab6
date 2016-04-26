@@ -3,7 +3,8 @@ require 'geokit'
 require 'json'
 
 get "/" do
-  send_file 'index.html'
+  #send_file 'index.html'
+  File.read(File.join('public', 'index.html'))
 end
 
 get "/restaurants" do
