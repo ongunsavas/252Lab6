@@ -2,10 +2,19 @@ require 'sinatra'
 require 'geokit'
 require 'json'
 
+set :public_folder, '.'
+
 get "/" do
-  html :index
+	File.read(File.join('.', 'index.html'))
+	#redirect '/index.html'
+	# send_file 'index.html'
+  #  send_file 'food2.jpg'
+   #   send_file 'food-fact1.jpg'
+
 
 end
+
+
 
 get "/restaurants" do
 	chicago = [Restaurant.new("Purple Pig", "500 N Michigan Ave, Chicago, IL 60611", "https://goo.gl/A3FawZ"),
