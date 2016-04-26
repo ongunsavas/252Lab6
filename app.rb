@@ -3,7 +3,7 @@ require 'geokit'
 require 'json'
 
 get "/" do
-  send_file 'index.html'
+  html :index
 
 end
 
