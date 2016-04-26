@@ -3,7 +3,7 @@ require 'geokit'
 require 'json'
 
 get "/" do
-	"Hello, world!"
+ File.read('index.html')
 end
 
 get "/restaurants" do
