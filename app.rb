@@ -26,7 +26,7 @@ get "/restaurants" do
 		Restaurant.new("Pot Sticker House","3139 S Halsted St Chicago, IL 60608","https://goo.gl/KDTnUq")]
 	new_york = [Restaurant.new("Blue Ribbon", "119 Sullivan Street New York, NY 10012", "http://goo.gl/WduX77"),
 		Restaurant.new("Barraca", "81 Greenwich Ave, New York, NY 10014", "https://goo.gl/a0XXKC"),
-		Restaurant.new("Sip Sak", "928 2nd Ave, New York, NY 10022", "http://goo.gl/JSmQXW")
+		Restaurant.new("Sip Sak", "928 2nd Ave, New York, NY 10022", "http://goo.gl/JSmQXW"),
 		Restaurant.new("Le Pain Quotidien", "100 Grand Street New York, NY 10013","http://goo.gl/UepevN"),
 		Restaurant.new("Wildair","142 Orchard St New York, NY 10002","https://goo.gl/0HB0vU"),
 		Restaurant.new("Lure Fishbar","142 Mercer St New York, NY 10012","https://goo.gl/s93gI1"),
