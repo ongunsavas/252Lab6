@@ -184,6 +184,8 @@ app.controller('postController', function($scope, $http) {
 
 <h3>{{Name}}</h3>
 <h3>{{Address}}</h3>
+<!--<h3>{{Picture}}</h3>-->
+<img ng-src="{{Picture}}">
 </form>
 
 </div>
@@ -211,13 +213,15 @@ app.controller('postController', function($scope, $http) {
 	
 	  var Name = jsontext['name'];
 	  var Address = jsontext['address'];
+	  var Picture = jsontext['picture_url'];
 	  $scope.Name = Name;
 	  $scope.Address = Address;
-                var src = jsontext['picture_url'],
+	  $scope.Picture = Picture;
+                /*var src = jsontext['picture_url'],
                 img = document.createElement('img');
 
             img.src = src;
-            document.body.appendChild(img);
+            document.body.appendChild(img);*/
           });
         };
     });
